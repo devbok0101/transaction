@@ -15,8 +15,6 @@ Transactional 인터셉터는 비즈니스 메서드 호출에만 개입
 - AOP를 기반으로 동작하기 때문
 - AOP의 프록시 패턴을 사용
 - 메서드가 호출될 경우, 프록시가 해당 메서드를 가로챔(intercept) 트랜잭션 시작, 커밋, 롤백 트랜잭션 관리 처리
-- 
-
 
 
 ### 라이프사이클 이벤트에는 개입하지 않음
@@ -24,6 +22,16 @@ Transactional 인터셉터는 비즈니스 메서드 호출에만 개입
 - JPA 엔티티의 @PostConstruct, @PreDestory, @PostLoad 등
 - 이런 메서드는 트랜 잭션 적용 대상이 아님
 라이프사이클 메서드는 지정되지 않는 트랜잭션 컨텍스트에서호출 됨
+
+### 이 때는 IllegalStatException이 발생합니다.
+- @Transactional 어노테이션이 적용된 빈
+- Transactional.TxType이 NOT_SUPPORTED 또는 NEVER가 아닌 경우
+-> UserTransaction 인터페이스 호출시 발생
+
+### TransactionSynchronizationRegistry의 사요은 @Transactional 어노테이션과 상관 없음
+
+**TransactionSynchronizationRegistry이 뭐야?**
+- 현재 실행중인 트랜잭션 관련 정보 제공 및 트랜잭션 동기화 작업 지원 인터페이스
 
 
 
