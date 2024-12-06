@@ -2,9 +2,9 @@ package com.master.account.application;
 
 import com.master.account.domain.Account;
 import com.master.account.infrastructure.AccountRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor

@@ -32,8 +32,9 @@ Transactional 인터셉터는 비즈니스 메서드 호출에만 개입
 
 **TransactionSynchronizationRegistry이 뭐야?**
 - 현재 실행중인 트랜잭션 관련 정보 제공 및 트랜잭션 동기화 작업 지원 인터페이스
-
-
+- TransactionSynchronizationRegistry을 직접 사용시, 코드가 복잡해질 가능성 높음
+  - 가능하면 프레임워크에 책임을 위임하자
+- @Transactional, TransactionSynchronizationManager, TransactionTemplate 을 쓰는게 스프링 환경에 더 적합.
 
 ### CDI 관리란?
 - Contexts and Dependency Injection
@@ -55,3 +56,6 @@ Transactional 인터셉터는 비즈니스 메서드 호출에만 개입
 ### CDI 관리 빈?
 - CDI 컨테이너가 의존성과 생명주기를 자동으로 관리하는 객체
 - 개발자는 객체 관리에 신경쓰지 않고, 비즈니스 로직에 집중 가능
+
+
+### 
