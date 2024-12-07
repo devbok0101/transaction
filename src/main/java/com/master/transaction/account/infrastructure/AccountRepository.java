@@ -1,6 +1,6 @@
-package com.master.account.infrastructure;
+package com.master.transaction.account.infrastructure;
 
-import com.master.account.domain.Account;
+import com.master.transaction.account.domain.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

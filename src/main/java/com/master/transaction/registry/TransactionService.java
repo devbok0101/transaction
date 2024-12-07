@@ -1,4 +1,4 @@
-package com.master.registry;
+package com.master.transaction.registry;
 
 
 import jakarta.annotation.Resource;
