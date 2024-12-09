@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
+
 @Service
 @RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService{
@@ -28,6 +30,10 @@ public class AccountServiceImpl implements AccountService{
         accountRepository.save(toAccount);
     }
 
+/*    @Transactional(
+            rollbackFor = {CheckedException.class},
+            noRollbackFor = {CheckedException.class}
+    )*/
     @Transactional(rollbackFor = CheckedException.class)
     public void transferWithCheckedException(Long fromAccountId, Long toAccountId, Double amount) throws CheckedException {
         Account fromAccount = accountRepository.findById(fromAccountId).orElseThrow();

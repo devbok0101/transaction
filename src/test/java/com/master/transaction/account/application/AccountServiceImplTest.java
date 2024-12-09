@@ -4,6 +4,7 @@ import com.master.transaction.account.application.AccountService;
 import com.master.transaction.account.application.CheckedException;
 import com.master.transaction.account.domain.Account;
 import com.master.transaction.account.infrastructure.AccountRepository;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,6 +22,7 @@ class AccountServiceImplTest {
     private AccountRepository accountRepository;
 
     @Test
+    @DisplayName("RunTimeException은 rollbackfor의 대상이므로, 롤백이 되어야한다.")
     void testRollbackForRuntimeException() {
         // Given: 초기 데이터 설정
         Long fromAccountId = 1L;
@@ -44,6 +46,7 @@ class AccountServiceImplTest {
     }
 
     @Test
+    @DisplayName("CheckedException rollbackfor의 대상이므로, 롤백이 되어야한다.")
     void testRollbackForCheckedException() {
         // Given: 초기 데이터 설정
         Long fromAccountId = 1L;
